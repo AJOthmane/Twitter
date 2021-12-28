@@ -13,6 +13,14 @@ spring:
     name: gateway-service
   cloud:
     gateway:
+      default-filters:
+          - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins: "*"
+              allowedMethods: "*"
+              allowedHeaders: "*"
       routes:
         - id: search-service
           uri: lb://SEARCH_SERVICE
