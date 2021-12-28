@@ -46,6 +46,10 @@ spring:
           uri: lb://TWEET-SERVICE
           predicates:
             - Path=/tweet-service/**
+        - id: sg-service
+          uri: lb://SG-SERVICE
+          predicates:
+            - Path=/sg-service/**
       discovery:
         locator:
           enabled: true
